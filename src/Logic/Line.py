@@ -1,6 +1,5 @@
 from src.Core.Color import COLOR
 from src.Core.Marker import MARKER
-from src.Core.Parser import EvalMathExpr
 
 import uuid
 
@@ -14,14 +13,6 @@ class Line:
         self.marker = MARKER.NONE
         self.markerColor = COLOR.BLACK
         self.markerColorInner = COLOR.BLACK
-
-
-#
-#
-# class LineMultiplicationData:
-#     def __init__(self, multiplicationString="", evaluatedMultiplicationValue=1):
-#         self.multiplicationString = multiplicationString
-#         self.evaluatedMultiplicationValue = evaluatedMultiplicationValue
 
 
 LineMultiplicationData = {"multiplicationString": "", "evaluatedMultiplicationValue": 1}
