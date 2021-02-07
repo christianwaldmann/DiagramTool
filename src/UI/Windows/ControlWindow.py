@@ -327,9 +327,9 @@ class ControlWindow(Window):
         self.diagramCreator.Show()
 
     def OnClearDiagramMenubarActionClicked(self):
-        self.diagramCreator.Clear()
-        self.lineLabelInput.GetInput().setText("")
         self.lineDropdown.clear()
+        self.lineLabelInput.GetInput().setText("")
+        self.diagramCreator.Clear()  # Clear Ui first, then diagram, else it wont work properly
 
     def OnLabelInputChanged(self, str):
         self.diagramCreator.UpdateLine(self.activeLineID, label=str)
