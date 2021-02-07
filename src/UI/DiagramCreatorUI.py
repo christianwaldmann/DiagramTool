@@ -1,5 +1,5 @@
-from src.UI.ControlWindow import ControlWindow
-from src.UI.Window import WindowProps
+from src.UI.Windows.ControlWindow import ControlWindow
+from src.UI.Base.Window import WindowProps
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5 import QtGui

@@ -20,6 +20,9 @@ class Input(QWidget):
     def GetInput(self):
         return self.input
 
+    def GetValue(self):
+        return self.input.text()
+
 
 class Input2(QWidget):
     def __init__(
