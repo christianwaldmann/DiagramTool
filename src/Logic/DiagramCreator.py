@@ -1,7 +1,7 @@
 from src.Core.Log import Log
 from src.Core.Core import ASSERT
 from src.Logic.Line import LineManager, LineWithState
-from src.UI.Window import Window, WindowProps
+from src.UI.Base.Window import Window, WindowProps
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
@@ -228,10 +228,8 @@ class DiagramCreator:
         self.fig.savefig(filepath)
         return filepath
 
-    def LoadCSV(self, filepath, delimiter="\t", decimal=","):
-        # TODO: hier weitermachen mit Impl.
-
-        df = pandas.read_csv(filepath, delimiter="\t", decimal=",")
+    def LoadCSV(self, filepath, delimiter, decimal):
+        df = pandas.read_csv(filepath, delimiter=delimiter, decimal=decimal)
         x = df.iloc[:, 0].tolist()
 
         for i in range(1, len(df.columns.values)):

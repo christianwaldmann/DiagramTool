@@ -1,7 +1,8 @@
-from src.UI.Window import Window
+from src.UI.Base.Window import Window
 from src.UI.Widgets.Input import Input, Input2, InputNumber
 from src.UI.Widgets.NavigationToolbar import NavigationToolbar
 from src.UI.Widgets.Dropdown import Dropdown
+from src.UI.Windows.CsvFileConfigurationWindow import CsvFileConfigurationWindow
 from src.Logic.DiagramCreator import DIAGRAM_MODE
 from src.Core.Parser import CastToNumberIfPossible, EvalMathExpr
 from src.Core.Log import Log
@@ -276,7 +277,15 @@ class ControlWindow(Window):
         Log.Info(f"Reading in {filepath}")
         extension = os.path.splitext(filepath)[1]
         if extension == ".csv":
-            self.diagramCreator.LoadCSV(filepath, delimiter="\t", decimal=",")
+
+            self.fileConfigurationWindow = CsvFileConfigurationWindow()
+            self.fileConfigurationWindow.Show()
+
+            self.diagramCreator.LoadCSV(
+                filepath,
+                delimiter=self.fileConfigurationWindow.delimiterDropdown.GetValue(),
+                decimal=self.fileConfigurationWindow.decimalDropdown.GetValue(),
+            )
             for line in self.diagramCreator.lineManager.GetLines():
                 self.lineDropdown.addItem(line.label)
             return
