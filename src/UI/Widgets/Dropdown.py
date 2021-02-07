@@ -19,6 +19,7 @@ class Dropdown(QWidget):
         else:
             self.mode = Mode.ITEM_TEXT_AS_VALUE
         layout = QHBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
         self.label = QLabel(label)
         if labelWidth:
             self.label.setFixedWidth(labelWidth)
