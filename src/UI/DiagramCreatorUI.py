@@ -9,7 +9,7 @@ class DiagramCreatorUI(QApplication):
     def __init__(self, diagramCreator):
         self.diagramCreator = diagramCreator
         super(QApplication, self).__init__([""])
-        self.setWindowIcon(QtGui.QIcon("assets/icons/pikachu.svg"))
+        self.setWindowIcon(QtGui.QIcon("assets/icons/icon.svg"))
 
         self.controlWindow = ControlWindow(
             WindowProps(Title="Diagram Tool", Width=500, Height=500),
